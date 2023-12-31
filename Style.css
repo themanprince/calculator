@@ -1,0 +1,78 @@
+.root {
+	/*some color definition*/
+	that-color: #62ADE4;
+
+	-fx-pref-width: 250px;
+	-fx-background-image: url("blue.jpg");
+	-fx-background-position: center;
+	-fx-padding: 0 3px 3px 3px;
+	-fx-font-family: "Liberation Sans";
+	-fx-spacing: 2px;
+}
+
+#rootGridPane /*different from root*/{
+	-fx-vgap: 4px;
+	-fx-hgap: 4px;
+}
+#rootGridPane > GridPane {
+	-fx-vgap: 0;
+	-fx-hgap: 0;
+}
+
+Button {
+	-fx-base: derive(that-color, -25%);
+	-fx-opacity: .7;
+	-fx-max-width: 2000px;
+	-fx-background-radius: 0;
+	-fx-text-fill: rgba(255, 255, 255, .8);
+	-fx-max-height: 2000px;
+	-fx-font-weight: bold;
+}
+
+/*for debugging*/
+#theTextField {
+	/*that border shit*/
+	-fx-border-width: 1px;
+	-fx-border-color: rgba(0, 0, 0, .7);
+	-fx-border-style: dashed;
+	/*rest shit*/
+	-fx-background-color: transparent;
+	-fx-background-position: center;
+	-fx-background-size: cover;
+	-fx-max-height: 2000px;
+	-fx-max-width: 2000px;
+	-fx-pref-height: 40px;
+	-fx-font-size: 15px;
+	-fx-text-fill: rgba(0, 0, 0, .9);
+	-fx-alignment: center-right;
+}
+#theLabel {
+	-fx-max-height: Infinity;
+	-fx-max-width: Infinity;
+	-fx-pref-height: 80px;
+	-fx-font-family: sans;
+	-fx-wrap-text: true;
+}
+
+/*The bg for em buttons*/
+#back, #sqrt, #sq {
+	-fx-background-repeat: no-repeat;
+	-fx-background-position: center;
+}
+#back {
+	-fx-background-image: url("backspace.png");
+	-fx-background-size: 15px 15px;
+}
+#sqrt {
+	-fx-background-image: url("sqrt.png");
+	-fx-background-size: 20px 20px;
+}
+#sq {
+	-fx-background-image: url("sq.png");
+	-fx-background-size: 25px 25px;
+}
+
+GridPane {
+	-fx-alignment: center;
+	-fx-insets: 5;
+}

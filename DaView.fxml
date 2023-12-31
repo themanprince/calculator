@@ -1,0 +1,113 @@
+<?language JavaScript?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml">
+	<children>
+		<Label fx:id="theLabel"/>
+		<TextField fx:id="theTextField" editable="false"/><!-- Just found out the hard way that you can actually decide whether or not to pass the event to the event handler-->
+		<GridPane fx:id="rootGridPane"> <!-- Not neccessarily the root... you can see-->
+			<children>
+				<!-- The buttons and braces buttons grid-->
+				<GridPane GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.rowSpan="4" GridPane.columnSpan="3" >
+					<children>
+						<Button text="1" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+						<Button text="2" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+						<Button text="3" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+						<Button text="4" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+						<Button text="5" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+						<Button text="6" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+						<Button text="7" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+						<Button text="8" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+						<Button text="9" GridPane.rowIndex="2" GridPane.columnIndex="2"/>
+						<Button text="0" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+						<Button text="(" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+						<Button text=")" GridPane.rowIndex="3" GridPane.columnIndex="2"/>
+					</children>
+					<columnConstraints>
+						<ColumnConstraints percentWidth="33.33"/>
+						<ColumnConstraints percentWidth="33.33"/>
+						<ColumnConstraints percentWidth="33.33"/>
+					</columnConstraints>
+					<rowConstraints>
+						<RowConstraints percentHeight="25"/>
+						<RowConstraints percentHeight="25"/>
+						<RowConstraints percentHeight="25"/>
+						<RowConstraints percentHeight="25"/>
+					</rowConstraints>
+				</GridPane>
+				<!-- Ends here-->
+				<!-- The deleting buttons grid-->
+				<GridPane GridPane.columnIndex="3" GridPane.rowIndex="0" GridPane.rowSpan="2">
+					<children>
+						<Button  GridPane.rowIndex="0" GridPane.columnIndex="0" fx:id="back" onAction="backspace()">
+						</Button>
+						<Button text="CE" GridPane.rowIndex="1" GridPane.columnIndex="0" onAction="{
+							theLabel.text = '';
+							theTextField.clear();
+							theTextField.requestFocus();
+							theTextField.positionCaret(theTextField.text.length);
+							}"/><!-- Just found out you can add a block of code to an onXXX event handler-->
+					</children>
+					<rowConstraints>
+						<RowConstraints percentHeight="50"/>
+						<RowConstraints percentHeight="50"/>
+					</rowConstraints>
+					<columnConstraints>
+						<ColumnConstraints percentWidth="100"/>
+					</columnConstraints>
+				</GridPane>
+				<!-- Ends here -->
+				<!-- One random loner button who prefers to be on his own cus no button seems to BE LIKE him around so he doesn't like any other button. they are all so different, it gets annoying-->
+				<!-- just joking of course, its the decimal point button-->
+				<Button  text="." GridPane.columnIndex="3" GridPane.rowIndex="2"/>
+				<!-- still lonely-->
+				<!-- the operator buttons grid-->
+				<GridPane GridPane.rowIndex="4" GridPane.columnIndex="0" GridPane.rowSpan="2" GridPane.columnSpan="3" >
+					<children>
+						<Button text="/" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+						<Button text="x" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+						<Button text="+" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+						<Button text="-" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+						<Button  GridPane.rowIndex="1" GridPane.columnIndex="1" fx:id="sqrt"/>
+						<Button GridPane.rowIndex="1" GridPane.columnIndex="2" fx:id="sq"/>
+					</children>
+					<columnConstraints>
+						<ColumnConstraints percentWidth="33.33"/>
+						<ColumnConstraints percentWidth="33.33"/>
+						<ColumnConstraints percentWidth="33.33"/>
+					</columnConstraints>
+					<rowConstraints>
+						<RowConstraints percentHeight="50"/>
+						<RowConstraints percentHeight="50"/>
+					</rowConstraints>
+				</GridPane>
+				<!-- Ends here-->
+				<!-- The Equals button-->
+				<Button text="=" GridPane.rowIndex="3" GridPane.columnIndex="3" GridPane.rowSpan="3" onAction="handleEql()"/>
+				<!-- Ends here-->
+			</children>
+			<columnConstraints>
+				<ColumnConstraints percentWidth="25"/>
+				<ColumnConstraints percentWidth="25"/>
+				<ColumnConstraints percentWidth="25"/>
+				<ColumnConstraints percentWidth="25"/>
+			</columnConstraints>
+			<rowConstraints>
+				<RowConstraints percentHeight="16.6"/>
+				<RowConstraints percentHeight="16.6"/>
+				<RowConstraints percentHeight="16.6"/>
+				<RowConstraints percentHeight="16.6"/>
+				<RowConstraints percentHeight="16.6"/>
+				<RowConstraints percentHeight="16.6"/>
+			</rowConstraints>
+		</GridPane>
+	</children>
+	<!-- Next, loading controller-->
+	<fx:script>
+	load("Controller.js");
+	</fx:script>
+</VBox>
